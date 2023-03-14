@@ -6,6 +6,6 @@ void setup() {
   Serial.begin(9600);
 }
 void loop() {
-  Serial.println(hx711.read()/100.0);
+  Serial.println(hx711.read()/100);
   delay(500);
 }

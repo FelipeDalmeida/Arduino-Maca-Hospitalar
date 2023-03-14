@@ -9,10 +9,12 @@ import serial
 from serial.tools import list_ports 
 conexao=serial.Serial('COM3',9600)
 
+respostaInicial=conexao.readline()
+valorInicial=float(respostaInicial.decode())
 while True:
          
     resposta=conexao.readline()
     valor=float(resposta.decode())
-    print(valor)
+    print(valor-valorInicial)
     
 conexao.close()
