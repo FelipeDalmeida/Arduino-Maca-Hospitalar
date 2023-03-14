@@ -6,7 +6,6 @@
   "description": "",
   "version": "1.0.0",
   "main": "main.js",
-  "type": "module",
   "devDependencies": {
     "electron": "^23.1.3"
   },

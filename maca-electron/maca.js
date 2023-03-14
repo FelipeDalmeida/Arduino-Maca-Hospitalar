@@ -1,5 +1,10 @@
 import { SerialPort } from 'serialport';
 import { ReadlineParser } from '@serialport/parser-readline'
+
+// const { SerialPort } = require('serialport');
+// const { ReadlineParser } = require('@serialport/parser-readline');
+
+
 const port = new SerialPort({path:'COM3', baudRate: 9600});
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
 
@@ -22,6 +27,7 @@ parser.on('data', data=>{
   }
   if(i>10){
     console.log(data-media)
+    document.getElementById('valor').innerHTML=data-media
   }
   i++;
 })
