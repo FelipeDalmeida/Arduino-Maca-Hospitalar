@@ -7,6 +7,8 @@ const createWindow = () => {
       width: 800,
       height: 600,
       webPreferences: {
+        nodeIntegration: true, // to allow require
+        contextIsolation: false, // allow use with Electron 12+
         preload: path.join(__dirname, 'preload.js')
       }
     })

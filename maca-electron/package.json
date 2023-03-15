@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "rebuild": "^0.1.2",
+    "run": "^1.4.0",
     "serialport": "^10.5.0"
   },
   "name": "arduino-electron",
@@ -11,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w serialport"
   },
   "repository": {
     "type": "git",
