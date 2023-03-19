@@ -28,9 +28,25 @@ const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
       },0)/leitura.length
     }
     if(i>10){
-      //console.log(data-tara)
+      
       valor=data
-      document.getElementById('valor').innerHTML=data-tara
+      let valorab=Number(data-tara)
+      console.log(valorab)
+      if(valorab>Math.abs(8000)){
+        document.getElementById('valor').innerHTML="Paciente no leito"
+        document.getElementById('paciente1').style["background-color"]="green"
+        document.getElementById('alert-paciente').innerHTML=``
+      } else if(valorab<Math.abs(8000) && valorab>Math.abs(1000)){
+        document.getElementById('valor').innerHTML="Paciente levantando"
+        document.getElementById('paciente1').style["background-color"]="gold"
+        document.getElementById('alert-paciente').innerHTML=``
+      } else{
+        document.getElementById('valor').innerHTML="Paciente fora do leito"
+        document.getElementById('paciente1').style["background-color"]="red"
+        document.getElementById('alert-paciente').innerHTML=`<div class="alert alert-danger" role="alert">
+        Paciente fora do leito
+      </div>`
+      }
     }
     i++;
   })

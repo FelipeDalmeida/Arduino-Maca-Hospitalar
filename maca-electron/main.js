@@ -4,8 +4,8 @@ const path = require('path')
 
 const createWindow = () => {
     const win = new BrowserWindow({
-      width: 800,
-      height: 600,
+      width: 1200,
+      height: 800,
       webPreferences: {
         nodeIntegration: true, // to allow require
         contextIsolation: false, // allow use with Electron 12+
