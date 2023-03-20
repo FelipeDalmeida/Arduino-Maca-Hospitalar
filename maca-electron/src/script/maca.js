@@ -4,7 +4,7 @@
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 
-
+const valorRef=2700;
 const port = new SerialPort({path:'COM3', baudRate: 9600});
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
 
@@ -32,11 +32,11 @@ const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
       valor=data
       let valorab=Number(data-tara)
       console.log(valorab)
-      if(valorab>Math.abs(8000)){
+      if(valorab>0.8*Math.abs(valorRef)){
         document.getElementById('valor').innerHTML="Paciente no leito"
         document.getElementById('paciente1').style["background-color"]="green"
         document.getElementById('alert-paciente').innerHTML=``
-      } else if(valorab<Math.abs(8000) && valorab>Math.abs(1000)){
+      } else if(valorab<0.8*Math.abs(valorRef) && valorab>0.4*Math.abs(1000)){
         document.getElementById('valor').innerHTML="Paciente levantando"
         document.getElementById('paciente1').style["background-color"]="gold"
         document.getElementById('alert-paciente').innerHTML=``
